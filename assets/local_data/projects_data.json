@@ -1,0 +1,22 @@
+[
+  {
+    "label_name": "Profile Company",
+    "details": "This is app presentation Pclink Company services ,\n portfolio , partners and products.",
+    "icon_path": "https://i.imgur.com/uYNZi0r.png",
+    "html_go_path": "https://play.google.com/store/apps/details?id=com.pclink.dev.profileapp",
+    "tech": [
+      "assets/icons/flutter_icon.svg",
+      "assets/icons/firebase.svg"
+    ]
+  },
+  {
+    "label_name": "Livestock App",
+    "details": "ARD ALAnnam Applecation for fresh carcasses and meats makes it easy\n for you to choose the type and size before delivery this app connect with woocommerce API.",
+    "icon_path": "https://i.imgur.com/28SCjBF.jpg",
+    "html_go_path": "https://play.google.com/store/apps/details?id=com.pclink.alanaam",
+    "tech": [
+      "assets/icons/flutter_icon.svg",
+      "assets/icons/firebase.svg"
+    ]
+  }
+]
