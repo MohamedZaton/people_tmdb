@@ -1,17 +1,33 @@
 import 'package:dio/dio.dart';
 import 'package:people_tmdb/models/PeopleModel.dart';
 
-String apiToken =
-    ""; // you can take api-key in this link https://www.themoviedb.org/
-String baseUrl = "https://api.themoviedb.org";
+import '../tools/constants.dart';
+import '../utils/PaginationFilter.dart';
 
-String url(String page) =>
-    "$baseUrl/3/person/popular?api_key=$apiToken&language=en-US&page=$page";
-Future<List<PeopleModel>?> peopleList(String page) async {
-  Response response = await Dio().get(url(page));
-  final List result = response.data;
+class TmdbRequest {
+  String apiToken =
+      "fba98756c2eba531f9fc710c5a2dc378"; // you can take api-key in this link https://www.themoviedb.org/
+  String baseUrl = kBaseUrl;
 
-  return result
-      .map((e) => PeopleModel.fromJson(e as Map<String, dynamic>))
-      .toList();
+  String url(int page) =>
+      "$baseUrl/3/person/popular?api_key=$apiToken&language=en-US&page=$page";
+
+  Future<Response> peopleGetRequest({
+    int page = 1,
+  }) async {
+    Response response = await Dio().get(url(page));
+
+    return response;
+  }
+
+  Future<List<PeopleModel>?> peopleList({
+    PaginationFilter? filter,
+  }) async {
+    Response response = await peopleGetRequest(page: filter?.page ?? 1);
+    final List result = response.data["results"];
+
+    return result
+        .map((e) => PeopleModel.fromJson(e as Map<String, dynamic>))
+        .toList();
+  }
 }

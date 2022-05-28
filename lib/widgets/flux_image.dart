@@ -27,7 +27,15 @@ class FluxImage extends StatelessWidget {
 
       imageProxy = kImageProxy;
     }
-
+    if (imageUrl == null) {
+      return Image.asset(
+        "assets/images/user.png",
+        width: width,
+        height: height,
+        fit: fit,
+        color: color,
+      );
+    }
     if (imageUrl.contains('http')) {
       return ExtendedImage.network(
         '$imageProxy$imageUrl',

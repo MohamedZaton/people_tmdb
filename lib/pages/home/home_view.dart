@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:people_tmdb/tools/constants.dart';
 import 'package:people_tmdb/utils/screens.dart';
 import 'package:people_tmdb/widgets/web_bar_widget.dart';
@@ -13,7 +14,6 @@ class HomePage extends StatelessWidget {
 
   @override
   build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     // // Initialize Firebase.
     // await Firebase.initializeApp();
     return SafeArea(
@@ -23,21 +23,18 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               WebBarWidget(),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 30.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(vertical: 30.0),
-                      child: Text(
-                        kPeopleTxt,
-                        style: Theme.of(context).textTheme.headline4,
-                      ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 20.0),
+                    child: Text(
+                      kPeopleTxt,
+                      style: Theme.of(context).textTheme.headline4,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               Expanded(child: Obx(() {
                 if (homeLogic.isLoading.value) {
@@ -46,12 +43,16 @@ class HomePage extends StatelessWidget {
                   return Container(
                     padding: EdgeInsets.symmetric(
                         horizontal: ScreenWeb.width(context) * 0.1),
-                    child: ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      itemCount: homeLogic.mainItemList.length,
-                      itemBuilder: (context, index) {
-                        return homeLogic.mainItemList[index];
-                      },
+                    child: LazyLoadScrollView(
+                      onEndOfPage: homeLogic.loadNextPage,
+                      isLoading: homeLogic.lastPage,
+                      child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: homeLogic.mainItemList.length,
+                        itemBuilder: (context, index) {
+                          return homeLogic.mainItemList[index];
+                        },
+                      ),
                     ),
                   );
                 }

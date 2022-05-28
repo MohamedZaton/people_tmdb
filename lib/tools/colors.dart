@@ -31,7 +31,7 @@ const kGrey400 = Color(0xFF90a4ae);
 const kTextGrayLight = Color(0xFFC4C4C6);
 const kTextGrayTag = Color(0xFFDEDEDE);
 const kTextDisActive = Color(0xFFC4C4C6);
-const kIconColorBlack = Color(0xFF211522);
+const kbkgdDark = Color(0x171717);
 
 const kErrorRed = Color(0xFFe74c3c);
 const kOrangeColor = Color(0xffef8712);

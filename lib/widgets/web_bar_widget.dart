@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:people_tmdb/tools/colors.dart';
 import 'package:people_tmdb/widgets/flux_image.dart';
 
 class WebBarWidget extends StatelessWidget {
@@ -13,14 +11,14 @@ class WebBarWidget extends StatelessWidget {
     return Container(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FluxImage(
             imageUrl: "assets/images/title_logo.png",
             width: 200,
             height: 100,
           ),
-          Row(
+/*          Row(
             children: [
               FloatingActionButton.small(
                 onPressed: () {
@@ -36,7 +34,7 @@ class WebBarWidget extends StatelessWidget {
                 backgroundColor: kIconBgColor,
               ),
             ],
-          ),
+          ),*/
         ],
       ),
     );
