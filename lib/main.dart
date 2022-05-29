@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:people_tmdb/pages/details/details_view.dart';
 import 'package:people_tmdb/pages/home/home_logic.dart';
 import 'package:people_tmdb/pages/home/home_view.dart';
+import 'package:people_tmdb/pages/poster/poster_view.dart';
 import 'package:people_tmdb/themes/get_theme.dart';
 
 class MyHttpOverrides extends HttpOverrides {
@@ -51,6 +52,10 @@ class MyApp extends StatelessWidget {
               binding: BindingsBuilder(() {
                 Get.lazyPut<HomeLogic>(() => HomeLogic());
               }),
+            ),
+            GetPage(
+              name: PosterPage.id,
+              page: () => PosterPage(),
             ),
           ],
         ),

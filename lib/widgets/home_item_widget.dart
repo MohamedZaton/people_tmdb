@@ -97,11 +97,7 @@ class HomeItemWgt extends StatelessWidget {
                         ),
 
                         /// main pic 2
-                        Expanded(
-                            flex: 2,
-                            child: Pic(
-                                kImageUrlSmall + personItemModel.profilePath!,
-                                ctx)),
+                        Expanded(flex: 2, child: Pic(profileImage, ctx)),
                       ],
                     ),
             ),
@@ -150,18 +146,6 @@ class Info extends StatelessWidget {
             ),
           ],
         ),
-/*        SizedBox(
-          height: ScreenWeb.heigth(context) * 0.02,
-        ),
-        Text(
-          personModel.knownForDepartment!,
-          style: Theme.of(context).textTheme.subtitle1,
-          overflow: TextOverflow.clip,
-          softWrap: false,
-        ),
-        SizedBox(
-          height: ScreenWeb.heigth(context) * 0.01,
-        ),*/
       ],
     );
   }

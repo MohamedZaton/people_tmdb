@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:people_tmdb/models/PeopleModel.dart';
+import 'package:people_tmdb/pages/poster/poster_view.dart';
 import 'package:people_tmdb/utils/screens.dart';
 import 'package:people_tmdb/widgets/flux_image.dart';
 
@@ -176,12 +177,19 @@ class DetailsPage extends StatelessWidget {
                                 itemBuilder: (context, index) {
                                   String moviePosterPath = kImageUrlSmall +
                                       actor.knownFor![index].posterPath!;
-                                  return ClipRRect(
-                                    borderRadius: BorderRadius.all(
-                                        Radius.circular(spacing_middle)),
-                                    child: FluxImage(
-                                      imageUrl: moviePosterPath,
-                                      fit: BoxFit.fill,
+                                  return InkWell(
+                                    onTap: () {
+                                      Get.to(() => PosterPage(
+                                            moviePosterPath: moviePosterPath,
+                                          ));
+                                    },
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(spacing_middle)),
+                                      child: FluxImage(
+                                        imageUrl: moviePosterPath,
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
                                   );
                                 },

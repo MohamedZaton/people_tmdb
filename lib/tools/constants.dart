@@ -18,6 +18,7 @@ const String kMaleTxt = "♂︎";
 const String kFemaleTxt = "♀︎";
 
 const String kDetailsTxt = "Details";
+const String kPosterTxt = "Poster";
 const String kDetailsAPI =
     "Displaying a list of popular people (actors, directors ..etc)";
 
