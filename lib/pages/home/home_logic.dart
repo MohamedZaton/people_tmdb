@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:people_tmdb/models/PeopleModel.dart';
-import 'package:people_tmdb/services/people_public_request.dart';
+import 'package:people_tmdb/pages/details/details_view.dart';
+import 'package:people_tmdb/services/app_api.dart';
 import 'package:people_tmdb/widgets/home_item_widget.dart';
 
 import '../../utils/PaginationFilter.dart';
@@ -11,6 +12,7 @@ class HomeLogic extends GetxController {
   RxList mainItemList = <HomeItemWgt>[].obs;
   final _paginationFilter = PaginationFilter().obs;
   final _lastPage = false.obs;
+  final selectedPerson = PeopleModel().obs;
 
   int? get limit => _paginationFilter.value.limit;
   int? get _page => _paginationFilter.value.page;
@@ -45,6 +47,12 @@ class HomeLogic extends GetxController {
     });
   }
 
+  void selectPersonDetails(PeopleModel person) {
+    print("selected name : ${person.name} id: ${person.id}");
+    selectedPerson.value = person;
+    Get.to(() => DetailsPage());
+  }
+
   void loadNextPage() {
     int page = _page! + 1;
     _changePaginationFilter(page, limit!);
@@ -58,7 +66,7 @@ class HomeLogic extends GetxController {
         isLoading.value = true;
       }
       List<PeopleModel>? homeItems =
-          await TmdbRequest().peopleList(filter: _paginationFilter.value);
+          await AppApi().peopleList(filter: _paginationFilter.value);
       int numPostion = 0;
       final peopleData = List<HomeItemWgt>.from(
         homeItems!.map(
@@ -67,6 +75,9 @@ class HomeLogic extends GetxController {
             return HomeItemWgt(
               personItemModel: item,
               index: numPostion,
+              onTapAction: () {
+                selectPersonDetails(item);
+              },
             );
           },
         ),

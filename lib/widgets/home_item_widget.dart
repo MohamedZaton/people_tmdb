@@ -10,10 +10,12 @@ import '../tools/constants.dart';
 class HomeItemWgt extends StatelessWidget {
   final PeopleModel personItemModel;
   final int index;
+  final void Function()? onTapAction;
   const HomeItemWgt({
     Key? key,
     required this.personItemModel,
     required this.index,
+    required this.onTapAction,
   }) : super(key: key);
 
   @override
@@ -43,9 +45,7 @@ class HomeItemWgt extends StatelessWidget {
             color: kbkgdDark,
             child: InkWell(
               borderRadius: BorderRadius.circular(12),
-              onTap: () {
-                /// Click actor or people
-              },
+              onTap: onTapAction,
               child: index.isOdd
                   ? Row(
                       mainAxisSize: MainAxisSize.max,

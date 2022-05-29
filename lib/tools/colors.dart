@@ -12,6 +12,7 @@ const kDarkAccent = Color(0xFFe9f5fe);
 const kDarkGray = Color(0xFF343434);
 const kSubHeadColor = Color(0xFF707070);
 const kSeeMoreColor = Color(0xFF757070);
+const klineVcColor = Color(0xFFB4BBC2);
 const kIconBgColor = Color(0xFF3F444F);
 const kBgFloatBtnLightColor = Color(0xFFE2E8F0);
 const kShadowColor = Color(0xFFC4C4C6);
@@ -19,6 +20,7 @@ const kTextColor = Color(0xFF211522);
 const kSubTextColor = Color(0xFFAEAEAE);
 const kTextLightColor = Color(0xFFEDEDEE);
 const kTextDark = Color(0xFF1A202C);
+const kbkgdDark = Color(0x171717);
 
 /// basic colors
 const kTeal50 = Color(0xFFE0F2F1);
@@ -31,7 +33,6 @@ const kGrey400 = Color(0xFF90a4ae);
 const kTextGrayLight = Color(0xFFC4C4C6);
 const kTextGrayTag = Color(0xFFDEDEDE);
 const kTextDisActive = Color(0xFFC4C4C6);
-const kbkgdDark = Color(0x171717);
 
 const kErrorRed = Color(0xFFe74c3c);
 const kOrangeColor = Color(0xffef8712);

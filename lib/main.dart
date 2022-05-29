@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:people_tmdb/pages/details/details_view.dart';
 import 'package:people_tmdb/pages/home/home_logic.dart';
 import 'package:people_tmdb/pages/home/home_view.dart';
 import 'package:people_tmdb/themes/get_theme.dart';
@@ -40,6 +41,13 @@ class MyApp extends StatelessWidget {
             GetPage(
               name: HomePage.id,
               page: () => HomePage(),
+              binding: BindingsBuilder(() {
+                Get.lazyPut<HomeLogic>(() => HomeLogic());
+              }),
+            ),
+            GetPage(
+              name: DetailsPage.id,
+              page: () => DetailsPage(),
               binding: BindingsBuilder(() {
                 Get.lazyPut<HomeLogic>(() => HomeLogic());
               }),
