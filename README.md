@@ -2,15 +2,31 @@
 
 Displaying a list of popular people (actors, directors ..etc) using themoviedb.org API.
 
-## Getting Started
+## App Images
 
-This project is a starting point for a Flutter application.
+![Flutter_project](https://user-images.githubusercontent.com/26501595/170995601-d1ada727-9a7c-4b52-b9b6-f5d4952c2a63.png)
 
-A few resources to get you started if this is your first Flutter project:
+## Configure
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+you need to take a api-token from https://www.themoviedb.org/
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    ``String apiToken= "";'You need to write yor api token in here';``
+    
+this code is in lib/services/app_api.dart
+
+## Android APK 
+
+https://drive.google.com/drive/folders/1miF1aA27x6TIBJIpYzHbb_-SLke03w5s?usp=sharing
+
+## Features
+
+☑︎ Displaying a list of popular people with infinite scrolling.  
+
+☑︎ When a person entry is selected, a Details view is opened with the basic person info and grid view of his/her movies posters.
+
+☑︎ When movie is selected, a Poster view in another Screen and from top-right you can download orignal image.   
+
+☑︎ State management -> Getx . 
+
+☑︎ Unit testing. 
+
