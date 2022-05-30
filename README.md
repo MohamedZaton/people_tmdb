@@ -14,6 +14,10 @@ you need to take a api-token from https://www.themoviedb.org/
     
 this code is in lib/services/app_api.dart
 
+## Android APK 
+
+https://drive.google.com/drive/folders/1miF1aA27x6TIBJIpYzHbb_-SLke03w5s?usp=sharing
+
 ## Features
 
 ☑︎ Displaying a list of popular people with infinite scrolling.  
