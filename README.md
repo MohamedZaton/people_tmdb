@@ -24,7 +24,7 @@ https://drive.google.com/drive/folders/1miF1aA27x6TIBJIpYzHbb_-SLke03w5s?usp=sha
 
 ☑︎ When a person entry is selected, a Details view is opened with the basic person info and grid view of his/her movies posters.
 
-☑︎ When movie is selected, a Poster view in another Screen and from top-right you can download orignal image.   
+☑︎ When movie is selected, a Poster view is opened another Screen and from top-right you can download orignal image.   
 
 ☑︎ State management -> Getx . 
 
