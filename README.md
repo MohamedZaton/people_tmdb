@@ -2,9 +2,9 @@
 
 Displaying a list of popular people (actors, directors ..etc) using themoviedb.org API.
 
-## Getting Started
+## App Images
 
-This project is a starting point for a Flutter application.
+![Flutter_project](https://user-images.githubusercontent.com/26501595/170995601-d1ada727-9a7c-4b52-b9b6-f5d4952c2a63.png)
 
 A few resources to get you started if this is your first Flutter project:
 
