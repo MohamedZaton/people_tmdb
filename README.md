@@ -22,7 +22,7 @@ this code is in lib/services/app_api.dart
 
 ☑︎ When movie is selected, a Poster view in another Screen and from top-right you can download orignal image.   
 
-☑︎ Getx is a state management package in this app. 
+☑︎ State management -> Getx . 
 
 ☑︎ Unit testing. 
 
