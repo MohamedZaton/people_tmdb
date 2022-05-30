@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class DetailsLogic extends GetxController {
+class DetailsController extends GetxController {
   /// I am using home controller
   /// xxx xxx xx x
 

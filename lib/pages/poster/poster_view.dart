@@ -6,13 +6,13 @@ import '../../models/PeopleModel.dart';
 import '../../tools/colors.dart';
 import '../../tools/constants.dart';
 import '../../widgets/flux_image.dart';
-import '../home/home_logic.dart';
+import '../home/home_controller.dart';
 
 class PosterPage extends StatelessWidget {
   static const String id = "/poster_page";
   String? moviePosterPath;
 
-  final homeLogic = Get.put(HomeLogic());
+  final homeLogic = Get.put(HomeController());
 
   PosterPage({Key? key, this.moviePosterPath}) : super(key: key);
 
@@ -50,7 +50,7 @@ class PosterPage extends StatelessWidget {
               Expanded(
                 child: Column(
                   children: [
-                    Container(
+                    Expanded(
                       child: ClipRRect(
                         borderRadius:
                             BorderRadius.all(Radius.circular(spacing_middle)),
@@ -62,7 +62,7 @@ class PosterPage extends StatelessWidget {
                               )
                             : Text("Not Found this Poster: $moviePosterPath"),
                       ),
-                    )
+                    ),
                   ],
                 ),
               )

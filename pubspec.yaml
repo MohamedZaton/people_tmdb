@@ -38,7 +38,7 @@ dependencies:
   extended_image: ^6.2.1
   gallery_saver: ^2.3.2
   # network
-  connectivity: ^3.0.6
+  connectivity_plus: ^2.3.0
   url_launcher: ^6.1.2
   dio: ^4.0.6
 
@@ -61,4 +61,3 @@ flutter:
     - assets/
     - assets/images/
     - assets/icons/
-    - assets/local_data/

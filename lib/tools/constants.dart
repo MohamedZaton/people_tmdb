@@ -3,6 +3,8 @@ const String kBaseUrl = "https://api.themoviedb.org";
 const String kImageUrlSmall = "https://image.tmdb.org/t/p/w200/";
 
 const String kFullNameTxt = "Full Name";
+const String kOnlineTxt = "Online";
+const String kOfflineTxt = "Offline";
 const String kAvatarImage = "assets/images/user.png";
 
 const String kTitleTxt = "Title";
@@ -30,3 +32,5 @@ const spacing_standard_new = 16.0;
 const spacing_large = 24.0;
 const spacing_xlarge = 32.0;
 const spacing_xxLarge = 40.0;
+
+const kLazyScrollKey = "LazyScrollHomeKey";

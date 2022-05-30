@@ -7,13 +7,13 @@ import 'package:people_tmdb/widgets/flux_image.dart';
 
 import '../../tools/colors.dart';
 import '../../tools/constants.dart';
-import '../home/home_logic.dart';
+import '../home/home_controller.dart';
 
 class DetailsPage extends StatelessWidget {
   static const String id = "/details_page";
 
   // final detailsLogic = Get.put(DetailsLogic());
-  final homeLogic = Get.put(HomeLogic());
+  final homeLogic = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {

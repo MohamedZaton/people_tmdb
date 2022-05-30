@@ -4,9 +4,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:people_tmdb/pages/details/details_view.dart';
-import 'package:people_tmdb/pages/home/home_logic.dart';
+import 'package:people_tmdb/pages/home/home_controller.dart';
 import 'package:people_tmdb/pages/home/home_view.dart';
 import 'package:people_tmdb/pages/poster/poster_view.dart';
+import 'package:people_tmdb/pages/splash/splash_controller.dart';
+import 'package:people_tmdb/pages/splash/splash_view.dart';
 import 'package:people_tmdb/themes/get_theme.dart';
 
 class MyHttpOverrides extends HttpOverrides {
@@ -37,25 +39,32 @@ class MyApp extends StatelessWidget {
           title: 'People',
           darkTheme: buildDarkTheme(),
           theme: buildLightTheme(),
-          initialRoute: HomePage.id,
+          initialRoute: SplashPage.id,
           getPages: [
             GetPage(
               name: HomePage.id,
               page: () => HomePage(),
               binding: BindingsBuilder(() {
-                Get.lazyPut<HomeLogic>(() => HomeLogic());
+                Get.lazyPut<HomeController>(() => HomeController());
               }),
             ),
             GetPage(
               name: DetailsPage.id,
               page: () => DetailsPage(),
               binding: BindingsBuilder(() {
-                Get.lazyPut<HomeLogic>(() => HomeLogic());
+                Get.lazyPut<HomeController>(() => HomeController());
               }),
             ),
             GetPage(
               name: PosterPage.id,
               page: () => PosterPage(),
+            ),
+            GetPage(
+              name: SplashPage.id,
+              page: () => SplashPage(),
+              binding: BindingsBuilder(() {
+                Get.lazyPut<SplashController>(() => SplashController());
+              }),
             ),
           ],
         ),

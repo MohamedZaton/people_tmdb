@@ -39,6 +39,7 @@ class FluxImage extends StatelessWidget {
     if (imageUrl.contains('http')) {
       return ExtendedImage.network(
         '$imageProxy$imageUrl',
+        enableMemoryCache: true,
         width: width,
         height: height,
         fit: fit,

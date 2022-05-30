@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
 import 'package:people_tmdb/models/PeopleModel.dart';
 import 'package:people_tmdb/pages/details/details_view.dart';
@@ -6,7 +7,8 @@ import 'package:people_tmdb/widgets/home_item_widget.dart';
 
 import '../../utils/PaginationFilter.dart';
 
-class HomeLogic extends GetxController {
+class HomeController extends GetxController {
+  RxBool isConnecting = true.obs;
   RxBool isLoading = false.obs;
   RxBool isLoadingNewPage = false.obs;
   RxList mainItemList = <HomeItemWgt>[].obs;
@@ -14,15 +16,30 @@ class HomeLogic extends GetxController {
   final _lastPage = false.obs;
   final selectedPerson = PeopleModel().obs;
 
+  /// infinite pages loading
   int? get limit => _paginationFilter.value.limit;
   int? get _page => _paginationFilter.value.page;
   bool get lastPage => _lastPage.value;
 
   RxInt pageNumber = 1.obs;
+  var subscription;
   @override
   onInit() {
     ever(_paginationFilter, (_) => fetchList());
     _changePaginationFilter(1, 20);
+    subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) {
+      if (result == ConnectivityResult.mobile) {
+        // I am connected to a mobile network.
+        isConnecting.value = true;
+      } else if (result == ConnectivityResult.wifi) {
+        // I am connected to a wifi network.
+        isConnecting.value = true;
+      } else {
+        isConnecting.value = false;
+      }
+    });
     super.onInit();
   }
 
@@ -38,6 +55,7 @@ class HomeLogic extends GetxController {
   @override
   void onClose() {
     super.onClose();
+    subscription.cancel();
   }
 
   void _changePaginationFilter(int page, int limit) {
