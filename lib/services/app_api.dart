@@ -3,6 +3,7 @@ import 'package:people_tmdb/models/PeopleModel.dart';
 
 import '../tools/constants.dart';
 import '../utils/PaginationFilter.dart';
+import 'local_data.dart';
 
 class AppApi {
   String apiToken =
@@ -29,12 +30,29 @@ class AppApi {
 
   Future<List<PeopleModel>?> peopleList({
     PaginationFilter? filter,
+    bool isConnect = true,
   }) async {
-    Response response = await peopleGetRequest(page: filter?.page ?? 1);
-    final List result = response.data["results"];
-
-    return result
-        .map((e) => PeopleModel.fromJson(e as Map<String, dynamic>))
-        .toList();
+    int pageNum = filter?.page ?? 1;
+    if (isConnect) {
+      try {
+        Response response = await peopleGetRequest(page: pageNum);
+        final List result = response.data[kResultsKey];
+        //print("[app_api] result string: ${result.toString()}");
+        LocalData().writeBackup(pageNum, result);
+        return result
+            .map((e) => PeopleModel.fromJson(e as Map<String, dynamic>))
+            .toList();
+      } catch (e) {
+        return LocalData()
+            .getBackup()
+            .map((e) => PeopleModel.fromJson(e as Map<String, dynamic>))
+            .toList();
+      }
+    } else {
+      return LocalData()
+          .getBackup()
+          .map((e) => PeopleModel.fromJson(e as Map<String, dynamic>))
+          .toList();
+    }
   }
 }

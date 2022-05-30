@@ -6,6 +6,7 @@ import 'package:people_tmdb/utils/screens.dart';
 
 import '../../tools/colors.dart';
 import '../../widgets/flux_image.dart';
+import '../../widgets/network_bar_widget.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,10 +14,10 @@ class HomePage extends StatelessWidget {
 
   final homeLogic = Get.put(HomeController());
   var subscription;
+  bool isConnecting = true;
 
   @override
   build(BuildContext context) {
-    bool isConnecting = true;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -46,25 +47,36 @@ class HomePage extends StatelessWidget {
               ],
             ),
             Expanded(child: Obx(() {
-              print("connect network :${homeLogic.isConnecting.value}");
+              print(
+                  "[home_view]connect network :${homeLogic.isConnecting.value}");
               if (homeLogic.isLoading.value) {
                 return const Center(child: CircularProgressIndicator());
               } else {
-                return Container(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: ScreenWeb.width(context) * 0.1),
-                  child: LazyLoadScrollView(
-                    key: Key(kLazyScrollKey),
-                    onEndOfPage: homeLogic.loadNextPage,
-                    isLoading: homeLogic.lastPage,
-                    child: ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      itemCount: homeLogic.mainItemList.length,
-                      itemBuilder: (context, index) {
-                        return homeLogic.mainItemList[index];
-                      },
+                return Column(
+                  children: [
+                    SizedBox(
+                        width: ScreenWeb.width(context),
+                        child: NetworkBarWidget(
+                            isConnect: homeLogic.isConnecting.value)),
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: ScreenWeb.width(context) * 0.1),
+                        child: LazyLoadScrollView(
+                          key: Key(kLazyScrollKey),
+                          onEndOfPage: homeLogic.loadNextPage,
+                          isLoading: homeLogic.lastPage,
+                          child: ListView.builder(
+                            scrollDirection: Axis.vertical,
+                            itemCount: homeLogic.mainItemList.length,
+                            itemBuilder: (context, index) {
+                              return homeLogic.mainItemList[index];
+                            },
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 );
               }
             })),

@@ -26,8 +26,9 @@ dependencies:
 
 
   cupertino_icons: ^1.0.2
-  # manage statement
+  # manage statement & local  storage
   get: ^4.6.5
+  get_storage: ^2.0.3
 
   # tools & custom ui
   google_fonts: 3.0.1

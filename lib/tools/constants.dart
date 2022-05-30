@@ -34,3 +34,4 @@ const spacing_xlarge = 32.0;
 const spacing_xxLarge = 40.0;
 
 const kLazyScrollKey = "LazyScrollHomeKey";
+const kResultsKey = "results";

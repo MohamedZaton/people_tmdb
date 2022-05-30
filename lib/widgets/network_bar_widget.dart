@@ -16,7 +16,7 @@ class NetworkBarWidget extends StatelessWidget {
         : Container(
             alignment: Alignment.center,
             color: Colors.red,
-            height: 5,
+            height: 32,
             width: ScreenWeb.width(context),
             child: Center(
               child: Text(kOfflineTxt,
