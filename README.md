@@ -14,9 +14,9 @@ you need to take a api-token from https://www.themoviedb.org/
     
 this code is in lib/services/app_api.dart
 
-## Android APK 
+## Android Play Store 
 
-https://drive.google.com/drive/folders/1miF1aA27x6TIBJIpYzHbb_-SLke03w5s?usp=sharing
+https://play.google.com/store/apps/details?id=com.zaytoun.people_tmdb
 
 ## Features
 
